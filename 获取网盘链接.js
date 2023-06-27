@@ -333,7 +333,7 @@
     btn_get_durl.style.top = '10px';
     btn_get_durl.onclick = function () {
         btn_get_durl.innerHTML = '获取中....';
-        var pan_nane = document.domain
+        var pan_name = window.location.host;
         switch(pan_name)
     {
         case 'xunniufile.com':
