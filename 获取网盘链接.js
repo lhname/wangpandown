@@ -401,7 +401,7 @@
         case 'rosefile.net':
             get_roselink();
             break;
-        case '77file.com':
+        case 'www.77file.com':
             get_77filelink();
             break;
         default:
