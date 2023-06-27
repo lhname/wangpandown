@@ -2,7 +2,7 @@
 // @name         获取网盘链接
 // @namespace    http://tampermonkey.net/
 // @version      0.4
-// @description  firsttest
+// @description  讯牛、rose、77file
 // @author       You
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        unsafeWindow
@@ -18,6 +18,7 @@
 // @grant        GM_notification
 // @match        *://*.xunniufile.com/*
 // @match        *://*.rosefile.net/*
+// @match        *://*.77file.com/*
 // @connect      127.0.0.1
 // @connect      192.168.1.38
 // @connect      localhost
@@ -165,7 +166,64 @@
                     data: 'action=load_down_addr1&file_id='+file_id,
                     headers: header,
                     onload: function (res) {
-                        //console.log(res.response)
+                        console.log(res.response)
+                        durl = subStringMulti(res.response,'<a href=\"','\"').toString()
+                        if(durl == ''){
+                            alert('解析失败2')
+                            return
+                        }
+                        console.log(durl)
+                        _global._durl = durl
+                        _global._filename = filename
+                        _global.referer = document.location.href
+                        btn_get_durl.innerHTML = '成功';
+                        return
+                    }
+                });
+            }
+        });
+    }
+    function get_77filelink(){
+        //----------------------------------------------
+
+        let header = {
+            "user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "referer":document.location.href
+        }
+
+        let url = document.location.href
+        let filename
+        let fmdown
+        let filesize
+        let file_id
+        let durl
+        //-----------------
+        GM_xmlhttpRequest({
+            method: "get",
+            url: url,
+            data: '',
+            headers: header,
+            onload: function (res) {
+                let this_response = res.response
+                //console.log(this_response)
+
+                filename = subStringMulti(this_response,"border='0' />","</h4>").toString()
+                filesize = subStringMulti(this_response,'id="file_size">','</span>').toString()
+                file_id = subStringMulti(this_response,"dolike&file_id=","'").toString()
+                if(file_id == ''){
+                    alert('解析失败1')
+                    return
+                }
+                //console.log(file_id)
+                console.log('成功1')
+                GM_xmlhttpRequest({
+                    method: "POST",
+                    url: 'https://www.77file.com/ajax.php',
+                    data: 'action=load_down_addr1&file_id='+file_id,
+                    headers: header,
+                    onload: function (res) {
+                        console.log(res.response)
                         durl = subStringMulti(res.response,'<a href=\"','\"').toString()
                         if(durl == ''){
                             alert('解析失败2')
