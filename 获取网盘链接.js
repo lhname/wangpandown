@@ -17,11 +17,11 @@
 // @grant        GM_openInTab
 // @grant        GM_notification
 // @match        *://*.xunniufile.com/*
-// @match        *://*.rosefile..net/*
+// @match        *://*.rosefile.net/*
 // @connect      127.0.0.1
 // @connect      192.168.1.38
 // @connect      localhost
-// @license         GPL-3.0-or-later
+// @license      GPL-3.0-or-later
 // ==/UserScript==
 
 (function() {
