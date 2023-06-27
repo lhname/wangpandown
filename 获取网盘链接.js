@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         获取讯牛链接
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  firsttest
 // @author       You
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
