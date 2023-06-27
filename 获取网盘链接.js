@@ -132,18 +132,6 @@
             "user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36",
             "referer":document.location.href
         }
-        let post_header = {
-            "referer":document.location.href,
-            "Accept-Encoding": "gzip, deflate",
-            "Accept-Language": "zh-CN,zh;q=0.9",
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Host": "www.xunniufile.com",
-            "Origin": "http://www.xunniufile.com",
-            "Proxy-Connection": "keep-alive",
-            "X-Requested-With": "XMLHttpRequest",
-            "cookie":"PHPSESSID=7bsmmtlj2mss19t1tqdnigaio4"
-
-        }
 
         let url = document.location.href
         let filename
@@ -174,7 +162,7 @@
                     method: "POST",
                     url: 'https://rosefile.net/ajax.php',
                     data: 'action=load_down_addr1&file_id='+file_id,
-                    headers: post_header,
+                    headers: header,
                     onload: function (res) {
                         //console.log(res)
                         durl = subStringMulti(res.response,'<a href=\"','\"').toString()
