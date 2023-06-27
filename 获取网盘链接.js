@@ -2,7 +2,7 @@
 // @name         获取讯牛链接
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
+// @description  firsttest
 // @author       You
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        unsafeWindow
@@ -20,6 +20,7 @@
 // @connect      127.0.0.1
 // @connect      192.168.1.38
 // @connect      localhost
+// @license         GPL-3.0-or-later
 // ==/UserScript==
 
 (function() {
