@@ -334,7 +334,7 @@
     btn_get_durl.onclick = function () {
         btn_get_durl.innerHTML = '获取中....';
         pan_nane = document.domain
-        switch(n)
+        switch(pan_name)
     {
         case 'xunniufile.com':
             get_xunniulink();
