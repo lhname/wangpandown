@@ -17,6 +17,7 @@
 // @grant        GM_openInTab
 // @grant        GM_notification
 // @match        *://*.xunniufile.com/*
+// @match        *://*.rosefile..net/*
 // @connect      127.0.0.1
 // @connect      192.168.1.38
 // @connect      localhost
