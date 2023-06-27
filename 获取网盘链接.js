@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         获取讯牛链接
+// @name         获取网盘链接
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  firsttest
 // @author       You
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
@@ -130,6 +130,7 @@
 
         let header = {
             "user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36",
+            "Content-Type": "application/x-www-form-urlencoded",
             "referer":document.location.href
         }
 
@@ -164,7 +165,7 @@
                     data: 'action=load_down_addr1&file_id='+file_id,
                     headers: header,
                     onload: function (res) {
-                        //console.log(res)
+                        //console.log(res.response)
                         durl = subStringMulti(res.response,'<a href=\"','\"').toString()
                         if(durl == ''){
                             alert('解析失败2')
