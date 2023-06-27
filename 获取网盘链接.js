@@ -401,6 +401,9 @@
         case 'rosefile.net':
             get_roselink();
             break;
+        case '77file.com':
+            get_77filelink();
+            break;
         default:
             alert('域名错误');
     }
