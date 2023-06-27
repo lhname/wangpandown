@@ -124,6 +124,74 @@
             }
         });
     }
+    function get_roselink(){
+        //----------------------------------------------
+
+        let header = {
+            "user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36",
+            "referer":document.location.href
+        }
+        let post_header = {
+            "referer":document.location.href,
+            "Accept-Encoding": "gzip, deflate",
+            "Accept-Language": "zh-CN,zh;q=0.9",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Host": "www.xunniufile.com",
+            "Origin": "http://www.xunniufile.com",
+            "Proxy-Connection": "keep-alive",
+            "X-Requested-With": "XMLHttpRequest",
+            "cookie":"PHPSESSID=7bsmmtlj2mss19t1tqdnigaio4"
+
+        }
+
+        let url = document.location.href
+        let filename
+        let fmdown
+        let filesize
+        let file_id
+        let durl
+        //-----------------
+        GM_xmlhttpRequest({
+            method: "get",
+            url: url,
+            data: '',
+            headers: header,
+            onload: function (res) {
+                let this_response = res.response
+                //console.log(this_response)
+
+                filename = subStringMulti(this_response,"            <h3>","</h3>").toString()
+                filesize = subStringMulti(this_response,'            <span class="h4">','</span>').toString()
+                file_id = subStringMulti(this_response,"// is open ref count\nadd_ref(",");").toString().replace("(","").replace(")","")
+                if(file_id == ''){
+                    alert('解析失败1')
+                    return
+                }
+                //console.log(file_id)
+                console.log('成功1')
+                GM_xmlhttpRequest({
+                    method: "POST",
+                    url: 'https://rosefile.net/ajax.php',
+                    data: 'action=load_down_addr1&file_id='+file_id,
+                    headers: post_header,
+                    onload: function (res) {
+                        //console.log(res)
+                        durl = subStringMulti(res.response,'<a href=\"','\"').toString()
+                        if(durl == ''){
+                            alert('解析失败2')
+                            return
+                        }
+                        console.log(durl)
+                        _global._durl = durl
+                        _global._filename = filename
+                        _global.referer = document.location.href
+                        btn_get_durl.innerHTML = '成功';
+                        return
+                    }
+                });
+            }
+        });
+    }
     function downloadFile(url, filename) {
         getBlob(url, function(blob) {
             saveAs(blob, filename);
@@ -276,7 +344,19 @@
     btn_get_durl.style.top = '10px';
     btn_get_durl.onclick = function () {
         btn_get_durl.innerHTML = '获取中....';
-        get_xunniulink();
+        pan_nane = document.domain
+        switch(n)
+    {
+        case 'xunniufile.com':
+            get_xunniulink();
+            break;
+        case 'rosefile.net':
+            get_roselink();
+            break;
+        default:
+            alert('域名错误');
+    }
+        
     }
 
     let btn_get_chrome_down = document.createElement('span');
