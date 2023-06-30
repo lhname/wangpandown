@@ -394,9 +394,9 @@
         btn_get_durl.innerHTML = '获取中....';
         var pan_name = window.location;
         if (pan_name.indexOf('xunniu')>=0){get_xunniulink();}
-        if (pan_name.indexOf('rose')>=0){get_roselink();}
-        if (pan_name.indexOf('77file')>=0){get_77filelink();}
-        alert('域名错误');
+        else if (pan_name.indexOf('rose')>=0){get_roselink();}
+        else if (pan_name.indexOf('77file')>=0){get_77filelink();}
+        else {alert('域名错误');}
     //     switch(pan_name)
     // {
     //     case 'xunniufile.com':
