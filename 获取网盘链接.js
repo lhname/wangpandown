@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         获取网盘链接
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.6
 // @description  讯牛、rose、77file
 // @author       You
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
@@ -393,12 +393,9 @@
     btn_get_durl.onclick = function () {
         btn_get_durl.innerHTML = '获取中....';
         var pan_name = window.location.host;
-        if (pan_name.indexOf('xunniu')>=0)
-            get_xunniulink();
-        if (pan_name.indexOf('rose')>=0)
-            get_roselink();
-        if (pan_name.indexOf('77file')>=0)
-            get_77filelink();
+        if (pan_name.indexOf('xunniu')>=0){get_xunniulink();}
+        if (pan_name.indexOf('rose')>=0){get_roselink();}
+        if (pan_name.indexOf('77file')>=0){get_77filelink();}
         alert('域名错误');
     //     switch(pan_name)
     // {
