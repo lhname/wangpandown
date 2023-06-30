@@ -393,20 +393,27 @@
     btn_get_durl.onclick = function () {
         btn_get_durl.innerHTML = '获取中....';
         var pan_name = window.location.host;
-        switch(pan_name)
-    {
-        case 'xunniufile.com':
+        if (pan_name.indexOf('xunniu')>=0)
             get_xunniulink();
-            break;
-        case 'rosefile.net':
+        if (pan_name.indexOf('rose')>=0)
             get_roselink();
-            break;
-        case 'www.77file.com':
+        if (pan_name.indexOf('77file')>=0)
             get_77filelink();
-            break;
-        default:
-            alert('域名错误');
-    }
+        alert('域名错误');
+    //     switch(pan_name)
+    // {
+    //     case 'xunniufile.com':
+    //         get_xunniulink();
+    //         break;
+    //     case 'rosefile.net':
+    //         get_roselink();
+    //         break;
+    //     case 'www.77file.com':
+    //         get_77filelink();
+    //         break;
+    //     default:
+    //         alert('域名错误');
+    // }
         
     }
 
