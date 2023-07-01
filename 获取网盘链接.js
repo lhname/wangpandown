@@ -393,10 +393,23 @@
     btn_get_durl.onclick = function () {
         btn_get_durl.innerHTML = '获取中....';
         var pan_name = window.location;
-        if (pan_name.indexOf('xunniu')>=0){get_xunniulink();}
-        else if (pan_name.indexOf('rose')>=0){get_roselink();}
-        else if (pan_name.indexOf('77file')>=0){get_77filelink();}
-        else {alert('域名错误');}
+        console.log(pan_name)
+        if (pan_name.indexOf('xunniu')>=0)
+        {
+            get_xunniulink();
+        }
+        else if (pan_name.indexOf('rose')>=0)
+        {
+            get_roselink();
+        }
+        else if (pan_name.indexOf('77file')>=0)
+        {
+            get_77filelink();
+        }
+        else 
+        {
+            alert('域名错误');
+        }
     //     switch(pan_name)
     // {
     //     case 'xunniufile.com':
