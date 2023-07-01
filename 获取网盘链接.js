@@ -392,7 +392,7 @@
     btn_get_durl.style.top = '10px';
     btn_get_durl.onclick = function () {
         btn_get_durl.innerHTML = '获取中....';
-        var pan_name = window.location;
+        var pan_name = window.location.host;
         console.log(pan_name)
         if (pan_name.indexOf('xunniu')>=0)
         {
