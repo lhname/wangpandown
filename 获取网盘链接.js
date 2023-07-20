@@ -23,7 +23,7 @@
 // @connect      127.0.0.1
 // @connect      192.168.1.38
 // @connect      localhost
-// @connect      http://www.xingyaopan.com
+// @connect      http://www.xingyaopan.com/*
 // @license      GPL-3.0-or-later
 // ==/UserScript==
 
