@@ -19,6 +19,7 @@
 // @match        *://*.xunniufile.com/*
 // @match        *://*.rosefile.net/*
 // @match        *://*.77file.com/*
+// @match        *://*.xywp*.com/*
 // @connect      127.0.0.1
 // @connect      192.168.1.38
 // @connect      localhost
