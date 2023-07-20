@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         获取网盘链接
 // @namespace    http://tampermonkey.net/
-// @version      0.8
+// @version      0.9
 // @description  讯牛、rose、77file
 // @author       You
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
@@ -278,7 +278,7 @@
                 console.log('成功1')
                 GM_xmlhttpRequest({
                     method: "POST",
-                    url: 'http://www.xingyaopan.com/ajax.php',
+                    url: 'http://www.xywp1.com/ajax.php',
                     data: 'action=load_down_addr5&file_id='+file_id,
                     headers: header,
                     onload: function (res) {
