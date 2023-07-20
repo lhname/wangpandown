@@ -240,6 +240,63 @@
             }
         });
     }
+    function get_xingyaolink(){
+        //----------------------------------------------
+
+        let header = {
+            "user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "referer":document.location.href
+        }
+
+        let url = document.location.href
+        let filename
+        let fmdown
+        let filesize
+        let file_id
+        let durl
+        //-----------------
+        GM_xmlhttpRequest({
+            method: "get",
+            url: url,
+            data: '',
+            headers: header,
+            onload: function (res) {
+                let this_response = res.response
+                //console.log(this_response)
+
+                filename = subStringMulti(this_response,"                                    文件下载 : ","</h3>").toString()
+                filesize = subStringMulti(this_response,"不支持获取该盘地址,不影响正常下载").toString()
+                file_id = subStringMulti(this_response,"\nadd_ref(","\);\n").toString().replace("(","").replace(")","")
+                if(file_id == ''){
+                    alert('解析失败1')
+                    return
+                }
+                //console.log(file_id)
+                console.log('成功1')
+                GM_xmlhttpRequest({
+                    method: "POST",
+                    url: 'http://www.xingyaopan.com/ajax.php',
+                    data: 'action=load_down_addr5&file_id='+file_id,
+                    headers: header,
+                    onload: function (res) {
+                        console.log(res.response)
+                        durl = subStringMulti(res.response,'<a href=\"','\"')[1].toString()
+                        if(durl == ''){
+                            alert('解析失败2')
+                            return
+                        }
+                        console.log(durl)
+                        _global._durl = durl
+                        _global._filename = filename
+                        _global.referer = document.location.href
+                        btn_get_durl.innerHTML = '成功';
+                        return
+                    }
+                });
+            }
+        });
+    }
     function downloadFile(url, filename) {
         getBlob(url, function(blob) {
             saveAs(blob, filename);
@@ -405,6 +462,10 @@
         else if (pan_name.indexOf('77file')>=0)
         {
             get_77filelink();
+        }
+        else if (pan_name.indexOf('xingyaopan')>=0)
+        {
+            get_xingyaolink();
         }
         else 
         {
