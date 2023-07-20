@@ -463,7 +463,7 @@
         {
             get_77filelink();
         }
-        else if (pan_name.indexOf('xingyaopan')>=0)
+        else if (pan_name.indexOf('xingyaopan')>=0 || pan_name.indexOf('xywp1')>=0)
         {
             get_xingyaolink();
         }
