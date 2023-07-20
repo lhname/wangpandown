@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         获取网盘链接
 // @namespace    http://tampermonkey.net/
-// @version      0.7
+// @version      0.8
 // @description  讯牛、rose、77file
 // @author       You
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
@@ -23,6 +23,7 @@
 // @connect      127.0.0.1
 // @connect      192.168.1.38
 // @connect      localhost
+// @connect      http://www.xingyaopan.com
 // @license      GPL-3.0-or-later
 // ==/UserScript==
 
