@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         获取网盘链接
 // @namespace    http://tampermonkey.net/
-// @version      0.9
+// @version      0.91
 // @description  讯牛、rose、77file
 // @author       You
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
@@ -20,6 +20,7 @@
 // @match        *://*.rosefile.net/*
 // @match        *://*.77file.com/*
 // @match        *://*.xywp1.com/*
+// @match        *://*.xunniu-pan.com/*
 // @connect      127.0.0.1
 // @connect      192.168.1.38
 // @connect      localhost
