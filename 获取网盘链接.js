@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         获取网盘链接
 // @namespace    http://tampermonkey.net/
-// @version      0.92
+// @version      0.93
 // @description  讯牛、rose、77file
 // @author       You
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
@@ -38,7 +38,7 @@
         _aria_token: 'doub.io', //这里是Aria推送token，默认不需要设置
         _idm_url: 'http://127.0.0.1:7178/select', //这是IDM推送地址，禁止更改
     }
-    var xunniu_domain = 'xunniu_pan'
+    var xunniu_domain = 'xunniu-pan'
 
     function subStringMulti(text, begin, end) {
         var regex;
